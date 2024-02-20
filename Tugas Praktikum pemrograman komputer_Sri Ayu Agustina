@@ -1,0 +1,67 @@
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeModel;
+
+public class Program1 {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Tree Model Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Create the root node and add child nodes
+        DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("Root");
+        DefaultMutableTreeNode node1 = new DefaultMutableTreeNode("File 1");
+        DefaultMutableTreeNode node2 = new DefaultMutableTreeNode("File  2");
+        rootNode.add(node1);
+        rootNode.add(node2);
+
+        // Create the tree model with the root node
+        TreeModel treeModel = new DefaultTreeModel(rootNode);
+
+        // Create JTree with the tree model
+        JTree tree = new JTree(treeModel);
+
+        // Add JTree to a JScrollPane and add JScrollPane to the frame
+        JScrollPane scrollPane = new JScrollPane(tree);
+        frame.getContentPane().add(scrollPane);
+
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+    }
+}
+
+
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeModel;
+
+public class Program2 {
+    public static void main(String[] args) {
+        DefaultMutableTreeNode rootNode = createTreeModel();
+
+        // Create the tree model with the root node
+        TreeModel treeModel = new DefaultTreeModel(rootNode);
+
+        // Create JTree with the tree model
+        JTree tree = new JTree(treeModel);
+
+        // Add JTree to a JScrollPane and add JScrollPane to the frame
+        JScrollPane scrollPane = new JScrollPane(tree);
+
+        JFrame frame = new JFrame("Tree Model Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(scrollPane);
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+    }
+
+    private static DefaultMutableTreeNode createTreeModel() {
+        DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("Root");
+        DefaultMutableTreeNode node1 = new DefaultMutableTreeNode("Program 1");
+        DefaultMutableTreeNode node2 = new DefaultMutableTreeNode("Program 2");
+        rootNode.add(node1);
+        rootNode.add(node2);
+        return rootNode;
+    }
+}
